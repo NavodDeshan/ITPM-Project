@@ -36,4 +36,22 @@ router.get('/Allusers', (req, res) => {
 });
 
 
+router.delete('/user/delete/:id', (req, res) => {
+    postEmp.findByIdAndRemove(req.params.id).exec((err, deletedEmp) => {
+        if (err)
+            return res.status(400).json({
+                massage: "Delete unsuccesful",
+                err
+            });
+        return res.json({
+            massege: "Delete Succesfully",
+            existingPosts:deletedEmp
+
+        });
+
+
+    });
+});
+
+
 module.exports = router

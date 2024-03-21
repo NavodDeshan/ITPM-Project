@@ -17,6 +17,11 @@ const validator = require('validator');
             }
         }
     },
+    lecId: {
+        type: String,
+        required: true,
+        unique: true
+    },
     password: {
         type: String,
         required: true
@@ -25,6 +30,10 @@ const validator = require('validator');
         type: Number,
         default: 2
     },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Users', //referring to the model name of the user
+    }
 }, {
     timestamps: true
 })

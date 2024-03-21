@@ -24,11 +24,10 @@ function UserAPI(token) {
                     setIsLogged(true)
                     res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false)
                     res.data.role === 0 ? setIsUser(true) : setIsUser(false)
-                    res.data.role === 2 ? setIsPc(true) : setIsPc(false)
-                    res.data.role === 3 ? setIsPm(true) : setIsPm(false)
-                    res.data.role === 4 ? setIsSupervisor(true) : setIsSupervisor(false)
-                    res.data.role === 5 ? setIsCoSupervisor(true) : setIsCoSupervisor(false)
-                    res.data.role === 6 ? setIsExaminor(true) : setIsExaminor(false)
+                    res.data.role === 2 ? setIsPm(true) : setIsPm(false)
+                    res.data.role === 3 ? setIsSupervisor(true) : setIsSupervisor(false)
+                    res.data.role === 4 ? setIsCoSupervisor(true) : setIsCoSupervisor(false)
+                    res.data.role === 5 ? setIsExaminor(true) : setIsExaminor(false)
 
                     setCart(res.data.cart)
 

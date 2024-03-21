@@ -1,5 +1,7 @@
 const express = require('express');
 const multer = require('multer');
+const Users = require('../models/userModel');
+const mongoose = require('mongoose');
 
 const postEmp = require('../models/emp')
 
@@ -62,22 +64,22 @@ router.put('/Emp/update/:id', (req, res) => {
 
 
 //delete post
-router.delete('/Emp/delete/:id', (req, res) => {
-    postEmp.findByIdAndRemove(req.params.id).exec((err, deletedEmp) => {
-        if (err)
-            return res.status(400).json({
-                massage: "Delete unsuccesful",
-                err
-            });
-        return res.json({
-            massege: "Delete Succesfully",
-            existingPosts:deletedEmp
+// router.delete('/Emp/delete/:id', (req, res) => {
+//     postEmp.findByIdAndRemove(req.params.id).exec((err, deletedEmp) => {
+//         if (err)
+//             return res.status(400).json({
+//                 massage: "Delete unsuccesful",
+//                 err
+//             });
+//         return res.json({
+//             massege: "Delete Succesfully",
+//             existingPosts:deletedEmp
 
-        });
+//         });
 
 
-    });
-});
+//     });
+// });
 
 //storage
 // const Storage = multer.diskStorage({
@@ -108,24 +110,60 @@ router.get('/Emp/:id', async (req, res) => {
     }
 });
 
-router.post('/add/emp', (req, res) => {
-    // upload(req, res, (err) => {
-    //     if (err) {
-    //         console.log(err)
-    //     } else {
-            const newEmp = new postEmp({
-                name: req.body.name,
-                email: req.body.email,
-                password: req.body.password,
-                role: req.body.role,
-                // CusImg:req.file.filename
-   
-            })
-            newEmp.save().then(() => res.send("successfull uploaded"))
-                .catch((err) => console.log(err));
+router.post('/add/emp', async (req, res) => {
+    try {
+        // Create a new user
+        const newUser = new Users({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password,
+            role: req.body.role
+        });
+        // Save the user to the database
+        const savedUser = await newUser.save();
 
-})
+        // Create a new employer with the user ID
+        const newEmployer = new postEmp({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password,
+            lecId: req.body.lecId,
+            role: req.body.role,
+            userId: savedUser._id // Store the user ID in the employer document
+        });
 
+        // Save the employer to the database
+        await newEmployer.save();
 
+        res.status(201).send("Employer added successfully");
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+// Delete employee by user ID
+router.delete('/Emp/delete/:userId', async (req, res) => {
+    const userId = mongoose.Types.ObjectId(req.params.userId);
+
+    try {
+        // Find the employee by the user ID
+        const employee = await postEmp.findOne({ userId });
+
+        if (!employee) {
+            return res.status(404).json({ message: 'Employee not found' });
+        }
+
+        // Delete the employee from the employer database
+        await postEmp.findOneAndDelete({ userId });
+        // Delete the corresponding user from the user database
+        await Users.findOneAndDelete({ _id: userId });
+
+        return res.json({ message: 'Employee deleted successfully' });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
+});
 
 module.exports = router;
