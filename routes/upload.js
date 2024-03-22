@@ -19,17 +19,17 @@ router.post('/upload',auth , authAdmin, (req, res) =>{
             return res.status(400).json({msg: 'No files were uploaded.'})
         
         const file = req.files.file;
-        if(file.size > 1024*1024) {
+        if(file.size > 10*1024*1024) {
             removeTmp(file.tempFilePath)
             return res.status(400).json({msg: "Size too large"})
         }
 
-        if(file.mimetype !== 'image/jpeg' && file.mimetype !== 'image/png'){
+        if(file.mimetype !== 'image/jpeg' && file.mimetype !== 'image/png' && file.mimetype !== 'application/pdf' && file.mimetype !== 'application/zip' && file.mimetype !== 'application/vnd.ms-excel' && file.mimetype !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'){
             removeTmp(file.tempFilePath)
             return res.status(400).json({msg: "File format is incorrect."})
         }
 
-        cloudinary.v2.uploader.upload(file.tempFilePath, {folder: "ITP"}, async(err, result)=>{
+        cloudinary.v2.uploader.upload(file.tempFilePath, {folder: "ITPM"}, async(err, result)=>{
             if(err) throw err;
 
             removeTmp(file.tempFilePath)

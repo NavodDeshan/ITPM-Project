@@ -2,6 +2,12 @@ import React from 'react';
 import BtnRender from './BtnRender';
 
 function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
+    const handleDownload = () => {
+        // Handle download logic here
+        // For example, you can create a link with the product's file URL
+        window.open(product.images.url, '_blank');
+      };
+
     return (
 
         <div className="bg-white rounded-lg shadow-md ml-4 mr-4 p-6">
@@ -22,9 +28,18 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
                 </h2>
                 <span className="font-bold text-purple-600 text-xl mb-4">LKR {product.price}</span>
                 <p className="text-gray-600">{product.description}</p>
+                {/* Download button */}
+            
+                <button className="bg-blue-600 text-white py-2 px-4 rounded-lg mt-4" onClick={handleDownload}>
+                    Download
+                </button>
+            
             </div>
 
+
             <BtnRender product={product} deleteProduct={deleteProduct} className="bg-purple-500 text-slate-950" />
+
+            
         </div>
     );
 }
