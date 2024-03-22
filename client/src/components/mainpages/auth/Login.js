@@ -30,65 +30,52 @@ function Login() {
     }
 
     return (
-        <div className='loginPageLR flexLR'>
-        <div className="containerLR flexLR">
+        <div className='flex justify-center items-center h-screen bg-gray-200'>
+            <div className="flex flex-col justify-center items-center bg-white p-10 rounded-lg shadow-md">
 
-            <div className="videoDiv">
-                <video src={video} autoPlay muted loop></video>
-
-                <div className='textDiv'>
-                    <h2 className='title'>Buy And Rent Mobile Phones</h2>
-                    <p>Adopt best quality Brand new Mobiles and Used ones.</p>
+                <div className="mb-10">
+                    <h2 className='text-3xl font-bold mb-2 text-black'>Project Module Management System</h2>
                 </div>
 
-                <div className="footerDiv flexLR">
-                    <span className='text'>Don't have an account?</span>
-                    <Link to={'/register'}>
-                        <button className='btn font-secondary'>Sign Up</button>
-                    </Link>
-                </div>
-            </div>    
-            
-            <div className="formDiv flexLR">
-                <div className="headerDiv">
-                    {/* <img src={elaLogo} alt="elaLogo" /> */}
-                    <h3>Welcome Back!</h3>
-                </div>
+                <form noValidate onSubmit={loginSubmit} className='flex flex-col space-y-5'>
+                    <span className='text-center text-xl text-gray-500'>Login</span>
 
-                <form noValidate onSubmit={loginSubmit} className='form grid' autoComplete='off'>
-                    <span className='showMessage'>Login Status will go here</span>
-
-                    <div className="inputDiv">
-                        <label htmlFor="email">Email:</label>
-                        <div className="input flexLR">
-                            <FaUserShield className='icon' />
-                            <input type="text" id="email" name="email" placeholder="Enter Email" value={user.email} onChange={onChangeInput} />
+                    <div className="flex flex-col space-y-2">
+                        <label htmlFor="email" className='font-semibold text-gray-600'>Email:</label>
+                        <div className="flex items-center space-x-2">
+                            <FaUserShield className='text-gray-500' />
+                            <input type="text" id="email" name="email" placeholder="Enter Email" value={user.email} onChange={onChangeInput} className='p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-400' />
                         </div>
                     </div>
 
-                    <div className="inputDiv">
-                        <label htmlFor="password">Password:</label>
-                        <div className="input flexLR">
-                            <BsFillShieldLockFill className='icon' />
-                            <input type="password" id="password" name="password" placeholder="Enter Password" value={user.password} onChange={onChangeInput} />
+                    <div className="flex flex-col space-y-2">
+                        <label htmlFor="password" className='font-semibold text-gray-600'>Password:</label>
+                        <div className="flex items-center space-x-2">
+                            <BsFillShieldLockFill className='text-gray-500' />
+                            <input type="password" id="password" name="password" placeholder="Enter Password" value={user.password} onChange={onChangeInput} className='p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-400' />
                         </div>
                     </div>
 
-                    <button type='submit' className='btn flexLR'>
-                        <span className='font-secondary'>Login</span>
-                        {/* <AiOutlineSwapRight className='icon' /> */}
+                    <button type='submit' className='bg-blue-500 text-white p-2 rounded-lg w-full hover:bg-blue-600'>
+                        Login
                     </button>
 
-                    <span className='forgotPassword'>
+                    <span className='text-center text-blue-500 hover:underline cursor-pointer'>
                         Forgot your password? <a href="/">Click Here</a>
                     </span>
 
                 </form>
-            </div>
 
+                <div className="mt-5">
+                    <span className='text-gray-500'>Don't have an account?</span>
+                    <Link to={'/register'} className='text-blue-500 hover:underline cursor-pointer ml-2'>
+                        Sign Up
+                    </Link>
+                </div>
+
+            </div>
         </div>
-      </div>
+
     )
 }
-
-export default Login
+    export default Login;
