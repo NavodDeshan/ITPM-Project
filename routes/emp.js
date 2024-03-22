@@ -2,13 +2,13 @@ const express = require('express');
 const multer = require('multer');
 const Users = require('../models/userModel');
 const mongoose = require('mongoose');
-
 const postEmp = require('../models/emp')
+const bcrypt = require('bcrypt')
+
 
 const router = express.Router();
 
-//save posts
-     
+//save posts     
 router.post('/Emp/save',(req,res)=>{
     let newPost = new postEmp(req.body);
 
@@ -42,25 +42,41 @@ router.get('/Emp', (req, res) => {
 
 //update Posts
 
-router.put('/Emp/update/:id', (req, res) => {
-    postEmp.findByIdAndUpdate(
-        req.params.id,
-        {
-            $set: req.body
-        },
-        (err, postEmp) => {
-            if (err) {
-                return res.status(400).json({ error: err });
+router.put('/Emp/update/:id', async (req, res) => {
+    try {
+        const postId = req.params.id;
+        const passwordHash = await bcrypt.hash(req.body.password, 10);
+        const updatedFields = {
+            name: req.body.name,
+            email: req.body.email,
+            lecId: req.body.lecId,
+            password: passwordHash // Update the password field if needed
+        };
+
+        // Find and update the employee details
+        const updatedEmployee = await postEmp.findByIdAndUpdate(postId, {
+            $set: updatedFields
+        }, { new: true });
+
+        // Update corresponding user details
+        await Users.findOneAndUpdate({ _id: updatedEmployee.userId }, {
+            $set: {
+                name: req.body.name,
+                email: req.body.email,
+                password: passwordHash // Update the password field if needed
             }
-            return res.status(200).json({
-                success: "Updated Succesfully",
-                
+        });
 
-            });
-        }
-
-    );
+        return res.status(200).json({
+            success: "Updated Successfully",
+            updatedEmployee
+        });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
 });
+
 
 
 //delete post
@@ -113,10 +129,11 @@ router.get('/Emp/:id', async (req, res) => {
 router.post('/add/emp', async (req, res) => {
     try {
         // Create a new user
+        const passwordHash = await bcrypt.hash(req.body.password, 10)
         const newUser = new Users({
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password,
+            password: passwordHash, 
             role: req.body.role
         });
         // Save the user to the database
@@ -126,7 +143,7 @@ router.post('/add/emp', async (req, res) => {
         const newEmployer = new postEmp({
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password,
+            password: passwordHash,
             lecId: req.body.lecId,
             role: req.body.role,
             userId: savedUser._id // Store the user ID in the employer document

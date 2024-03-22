@@ -49,8 +49,7 @@ function Pages() {
     const [isPm] = state.userAPI.isPm
     const [isSupervisor] = state.userAPI.isSupervisor
     const [isCoSupervisor] = state.userAPI.isCoSupervisor
-    const [isExaminor] = state.userAPI.isExaminor
-    
+    const [isExaminor] = state.userAPI.isExaminor    
 
 
     return (
@@ -106,7 +105,6 @@ function Pages() {
             <Route path="/all-deliveries" exact element={<AllDeliveries />} />
             <Route path="/deliveryrepo" exact element={<ReportDelivery />} />
            
-
 
             <Route path="/addwarranty" exact element={<AddWarranty />} />
             <Route path="/addedwarranty" exact element={<AllWarranty />} />
