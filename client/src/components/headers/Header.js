@@ -25,9 +25,9 @@ function Header() {
     const adminRouter = () =>{
         return(
             <>
-                <li><Link to="/create_product">Create Product</Link></li>
-                <li><Link to="/category">Categories</Link></li>
-                <li><Link to="/supportChat">Users</Link></li>
+                <li><Link to="/create_product">Add Assignments</Link></li>
+                <li><Link to="/category">Mark Sheet Generator</Link></li>
+                <li><Link to="/Emp">Project Members</Link></li>
  
                 {/* <li><Link to="/Emp">Employees</Link></li>
                 <li><Link to="/Repair">Repairs</Link></li>
@@ -35,7 +35,7 @@ function Header() {
                 <li><Link to="/all-deliveries">Deliveries</Link></li>
                 <li><Link to="/addedwarranty">Warranties</Link></li> */}
 
-                <li className='dashBoardColor'><Link to="/dashBoard">DashBoard</Link></li>
+                {/* <li className='dashBoardColor'><Link to="/dashBoard">DashBoard</Link></li> */}
                 <style>{`
                         .dashBoardColor:hover a {
                             background-image: linear-gradient(to right, #1BDFDF, #056ED7, #47C6FD);
@@ -66,8 +66,9 @@ function Header() {
     const UserRouter = () =>{
         return(
             <>
-                <li><Link to="/history">Your History</Link></li>
-                <li><Link to="/contactUs">Contact Us</Link></li>
+                
+                {/* <li><Link to="/history">Your History</Link></li>
+                <li><Link to="/contactUs">Contact Us</Link></li> */}
             </>
         )
     }
@@ -83,9 +84,9 @@ function Header() {
             </div>
 
             <div className="logo pl-3">
-                <h1 className='happyTopicNav'>
+                {/* <h1 className='happyTopicNav'>
                     <Link to="/">{isAdmin ? 'Happy Admin' : 'Happy Mobile'}</Link>
-                </h1>
+                </h1> */}
                 <style>{`
                         .happyTopicNav:hover a {
                             background-image: linear-gradient(to right, #EDFE00, #E6BA09, #C06F05);
@@ -96,11 +97,11 @@ function Header() {
             </div>
 
             <ul style={styleMenu}>
-                <li><Link to="/">{isAdmin ? 'Products' : 'Shop'}</Link></li>
+                <li><Link to="/">{ 'Assignmets'}</Link></li>
 
-                <li><Link to="/cuswarranty">{isAdmin ? '' : 'Your Warranties'}</Link></li>
+                {/* <li><Link to="/cuswarranty">{isAdmin ? '' : 'Your Warranties'}</Link></li>
 
-                <li><Link to="/cusrepair">{isAdmin ? '' : 'Your Repairs'}</Link></li>
+                <li><Link to="/cusrepair">{isAdmin ? '' : 'Your Repairs'}</Link></li> */}
 
                 {isAdmin && adminRouter()}
 
@@ -108,7 +109,7 @@ function Header() {
 
                 {
                     isLogged ? loggedRouter() : <li><Link to="/login">Login ✥ Register</Link></li>
-                }
+                } 
 
                 <li onClick={() => setMenu(!menu)}>
                     <img src={Close} alt="" width="30" className="menu" />
