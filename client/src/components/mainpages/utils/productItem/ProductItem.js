@@ -10,8 +10,8 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
       };
 
     return (
-        <div className='flex items-center justify-center'>
-            <div className="bg-white rounded-lg flex w-10/12 mb-1 items-center justify-center px-3">
+        <div className='flex items-center justify-center p-4 grid-cols-5'>
+            <div className="bg-white rounded-lg flex mb-1  px-3 w-screen">
                 {isAdmin && (
                     <input
                         type="checkbox"
@@ -20,18 +20,28 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
                         onChange={() => handleCheck(product._id)}
                     />
                 )}
+                <div>
                 <FaRegFilePdf className="flex text-black p-4 w-24 h-24  " /> 
-
-                <div className="  ml-40 mt-6 w-full flex">
-                    <p className="text-gray-600">{product.description}</p>
+                </div>
+               
+                
+                <div className="  ml-10 mt-6  flex">
+                    <p className="text-gray-600">{product.product_id}</p>
                 </div>
 
-                <div className="flex justify-between items-center w-full mt-4 ml-96">
-                    <button className="bg-blue-600 text-white py-2 px-4 rounded-lg " onClick={handleDownload}>
+                <div className="ml-10 mt-6">
+                    <p className="text-gray-600">{product.description}</p>
+                </div>
+                                  
+                 <div className='flex ml-auto'>
+                 <div className="flex  items-center">
+                    <button className="bg-blue-600 text-white py-2 px-4 rounded-lg mr-5 " onClick={handleDownload}>
                         Download
                     </button>
                     <BtnRender product={product} deleteProduct={deleteProduct} className="bg-purple-500 text-slate-950 p-2" />
                 </div>
+                 </div>
+              
             </div>
         </div>
     );

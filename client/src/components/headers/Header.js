@@ -51,6 +51,8 @@ function Header() {
     const loggedRouter = () =>{
         return(
             <>
+
+                <li><Link to="/">{ 'Assignmets'}</Link></li>
                 <li className='logOutRed'><Link to="/" onClick={logoutUser}>Logout</Link></li>
                 {/* <li><Link to="/pro">Profile</Link></li> */}
                 <style>{`
@@ -97,16 +99,16 @@ function Header() {
             </div>
 
             <ul style={styleMenu}>
-                <li><Link to="/">{ 'Assignmets'}</Link></li>
 
                 {/* <li><Link to="/cuswarranty">{isAdmin ? '' : 'Your Warranties'}</Link></li>
 
                 <li><Link to="/cusrepair">{isAdmin ? '' : 'Your Repairs'}</Link></li> */}
 
-                {isAdmin && adminRouter()}
+                
 
                 {isUser && UserRouter()}
 
+                {isAdmin && adminRouter()}
                 {
                     isLogged ? loggedRouter() : <li><Link to="/login">Login ✥ Register</Link></li>
                 } 

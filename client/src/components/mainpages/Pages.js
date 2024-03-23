@@ -54,7 +54,7 @@ function Pages() {
 
     return (
         <Routes>
-            <Route path="/" exact element={<Products/>} />
+            <Route path="/" exact element={isLogged ? <Products/> : <Login/>} />
             <Route path="/detail/:id" exact element={<DetailProduct/>} />
             <Route path="/ProR" exact element={<ReportPro/>} />
 
