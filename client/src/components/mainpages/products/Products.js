@@ -52,7 +52,7 @@ function Products() {
     return (
         
         <>
-        <div className='text-center text-3xl'> Assignments </div>
+        <div className='text-center text-3xl mt-4 mb-4'> Assignments </div>
 
         <motion.div variants={fadeIn('left', 0.6)} initial="hidden" whileInView={'show'} className="products" id='productsId1'>
             {

@@ -167,6 +167,11 @@ function CreateProduct() {
       </div>
 
       <form className="" onSubmit={handleSubmit}>
+      <div className="mb-4">
+          <label htmlFor="product_id" className="text-white">Assignment ID:</label>
+          <input className='bg-gray-200 rounded-lg p-2 w-full text-slate-950' type="text" name="product_id" id="product_id" required
+            value={product.product_id} onChange={handleChangeInput} />
+        </div>
         
         <div className="mb-4">
           <label htmlFor="description" className="text-white">Description:</label>
