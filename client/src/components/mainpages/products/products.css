@@ -2,7 +2,9 @@
 
 /* ----------- Product Item ----------------- */
 @import url("../utils/productItem/productItem.css");
-
+body{
+    height: 100%;
+}
 .delete-all{
     text-align: right;
     margin: 20px;

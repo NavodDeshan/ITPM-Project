@@ -28,18 +28,18 @@ function BtnRender({ product, deleteProduct }) {
         </>
       ) : (
         <>
-          <button
+          {/* <button
             className="bg-green-600 text-white py-2 px-4 rounded-lg mr-4"
             onClick={() => addCart(product)}
           >
             Buy
-          </button>
-          <Link
+          </button> */}
+          {/* <Link
             className="bg-blue-600 text-white py-2 px-4 rounded-lg"
             to={`/detail/${product._id}`}
           >
             View
-          </Link>
+          </Link> */}
         </>
       )}
     </div>
