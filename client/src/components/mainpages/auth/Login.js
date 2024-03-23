@@ -33,12 +33,12 @@ function Login() {
         <div className='flex justify-center items-center h-screen bg-gray-200'>
             <div className="flex flex-col justify-center items-center bg-white p-10 rounded-lg shadow-md">
 
-                <div className="mb-10">
-                    <h2 className='text-3xl font-bold mb-2 text-black'>Project Module Management System</h2>
+                <div className="mb-2">
+                    <h2 className='text-3xl font-bold text-black'>Project Module Management System</h2>
                 </div>
 
                 <form noValidate onSubmit={loginSubmit} className='flex flex-col space-y-5'>
-                    <span className='text-center text-xl text-gray-500'>Login</span>
+                    <span className='text-center text-2xl text-gray-500'>Login</span>
 
                     <div className="flex flex-col space-y-2">
                         <label htmlFor="email" className='font-semibold text-gray-600'>Email:</label>
@@ -49,10 +49,10 @@ function Login() {
                     </div>
 
                     <div className="flex flex-col space-y-2">
-                        <label htmlFor="password" className='font-semibold text-gray-600'>Password:</label>
+                        <label htmlFor="password" className='font-semibold text-black'>Password:</label>
                         <div className="flex items-center space-x-2">
                             <BsFillShieldLockFill className='text-gray-500' />
-                            <input type="password" id="password" name="password" placeholder="Enter Password" value={user.password} onChange={onChangeInput} className='p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-400' />
+                            <input type="password" id="password" name="password" placeholder="Enter Password" value={user.password} onChange={onChangeInput} className='p-2 border rounded-lg w-full text-black focus:outline-none focus:ring-2 focus:ring-blue-400' />
                         </div>
                     </div>
 
