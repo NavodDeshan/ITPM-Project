@@ -1,5 +1,6 @@
 import React from 'react';
 import BtnRender from './BtnRender';
+import { FaRegFilePdf } from "react-icons/fa";
 
 function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
     const handleDownload = () => {
@@ -19,14 +20,11 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
                     onChange={() => handleCheck(product._id)}
                 />
             )}
-            <img src={product.images.url} alt="" className="mx-auto w-64 h-64 object-contain" />
+            <FaRegFilePdf className=" text-black mx-auto w-64 h-64 object-contain" /> 
 
 
             <div className="text-center mt-6">
-                <h2 className="text-lg font-medium text-gray-900 mb-2" title={product.title}>
-                    {product.title}
-                </h2>
-                <span className="font-bold text-purple-600 text-xl mb-4">LKR {product.price}</span>
+            
                 <p className="text-gray-600">{product.description}</p>
                 {/* Download button */}
             
