@@ -4,7 +4,7 @@ export default function footer() {
   return (
     <div className='bg-gray-200'>
        <footer className='mt-14'>
-          <div className="p-10 bg-gray-800 text-gray-200">
+          {/* <div className="p-10 bg-gray-800 text-gray-200">
             <div className="max-w-7xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
                 <div className='mb-5'>
@@ -47,24 +47,24 @@ export default function footer() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className='w-full bg-gray-900 text-gray-500 px-10'>
-            <div className='max-w-7xl flex flex-col sm:flex-row py-4 mx-auto justify-between items-center'>
-              <div className='text-center'>
+            <div className='max-w-7xl flex flex-col sm:flex-row py-4 mx-auto justify-center items-center'>
+              <div className='text-center justify-center'>
                 <div>
-                  Copyright <strong><span>Happy Mobile</span></strong>. All Rights Reserved
+                  <strong><span>ITPM Project Management System</span></strong>.
                 </div>
                 <div>
                   Designed by <a href="https://web.facebook.com/imantha.oshadha.3" className='text-purple-700 hover:text-yellow-400'>An Undergraduate of SLIIT</a>
                 </div>
               </div>
-              <div className='text-center text-xl text-white mb-2'>
+              {/* <div className='text-center text-xl text-white mb-2'>
                 <a href="123321" className='w-10 h-10 rounded-full bg-purple-500 hover:bg-blue-500 mx-1 inline-block pt-2'><i class="fa fa-twitter"></i></a>
                 <a href="123321" className='w-10 h-10 rounded-full bg-purple-500 hover:bg-gradient-to-r hover:from-pink-500 hover:to-orange-500 mx-1 inline-block pt-2'><i class="fa fa-instagram"></i></a>
                 <a href="123321" className='w-10 h-10 rounded-full bg-purple-500 hover:bg-blue-700 mx-1 inline-block pt-2'><i class="fa fa-facebook"></i></a>
                 <a href="123321" className='w-10 h-10 rounded-full bg-purple-500 hover:bg-blue-400 mx-1 inline-block pt-2'><i class="fa fa-skype"></i></a>
                 <a href="123321" className='w-10 h-10 rounded-full bg-purple-500 hover:bg-blue-900 mx-1 inline-block pt-2'><i class="fa fa-linkedin"></i></a>
-              </div>
+              </div> */}
             </div>
           </div>
        </footer>

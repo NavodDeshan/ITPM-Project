@@ -33,10 +33,10 @@ function Categories() {
           <thead>
             <tr>
               <th className="px-4 py-2">Subcategory</th>
-              <th className="px-4 py-2">Column 2</th>
-              <th className="px-4 py-2">Column 3</th>
-              <th className="px-4 py-2">Column 4</th>
-              <th className="px-4 py-2">Column 5</th>
+              <th className="px-4 py-2">Student  1</th>
+              <th className="px-4 py-2">Student  2</th>
+              <th className="px-4 py-2">Student  3</th>
+              <th className="px-4 py-2">Student  4</th>
             </tr>
           </thead>
           <tbody>
@@ -158,7 +158,7 @@ function Categories() {
       <div className="bg-violet-500 px-3 py-6 border rounded-lg border-purple-700 ">
         {/* Create Main Category Form */}
         <form onSubmit={createMainCategory}>
-          <label htmlFor="mainCategory" className="block text-gray-700 font-bold mb-2">Main Category</label>
+          <label htmlFor="mainCategory" className="block text-gray-700 font-bold mb-2">Assignment Name</label>
           <div className="flex items-center mb-4">
             <input
               type="text"
@@ -171,7 +171,7 @@ function Categories() {
             <button
               type="submit"
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-              Create Main Category
+              Create An Assignment
             </button>
           </div>
         </form>
@@ -182,9 +182,9 @@ function Categories() {
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50 ">
               <tr>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Main Category</th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Subcategories</th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Subcategory Actions</th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Assignment NAme</th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Criteria</th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                 {/* <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Main category Actions</th> */}
               </tr>
             </thead>
@@ -234,7 +234,7 @@ function Categories() {
         <div key={category._id} className="mt-4">
           <h3 className="text-lg font-semibold">{category.name}</h3>
           <button className="bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-2" onClick={() => generateTable(category._id)}>
-            Generate Table
+            Generate Mark sheet
           </button>
           {tables[category._id] && (
             <div className="mt-4">
@@ -252,7 +252,7 @@ function Categories() {
           <div className="bg-violet-500 px-3 py-6 border rounded-lg border-purple-700">
             <form onSubmit={updateMainCategory}>
               <label htmlFor="updateCategory" className="block text-gray-700 font-bold mb-2">
-                Update Main Category
+                Update Assignment Name
               </label>
               <div className="flex items-center mb-4">
                 <input
@@ -276,7 +276,7 @@ function Categories() {
               <div className="mt-6">
                 <form onSubmit={createSubCategory}>
                   <label htmlFor="subCategory" className="block text-gray-700 font-bold mb-2">
-                    Subcategory for {categories.find((cat) => cat._id === selectedMainCategory)?.name}
+                    Criterias for {categories.find((cat) => cat._id === selectedMainCategory)?.name} Assignment
                   </label>
                   <div className="flex items-center mb-4">
                     <input
@@ -290,7 +290,7 @@ function Categories() {
                     <button
                       type="submit"
                       className="bg-green-500 hover.bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                      Add Subcategory
+                      Add Criteria
                     </button>
                   </div>
                 </form>
