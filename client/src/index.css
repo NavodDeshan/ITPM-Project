@@ -10,7 +10,8 @@
 }
 
 body{
-  background-image: url(./images/site-bg.jpg);
+  /* background-image: url(./images/site-bg.jpg); */
+  background-color: #1c1a20;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -43,14 +44,10 @@ button{
 @import url("./components/headers/header.css");
 
 /* ------------- Products -------------- */
-
 @import url("./components/mainpages/products/products.css");
 
 /* ---------------- Detail Product --------------- */
 @import url("./components/mainpages/detailProduct/detailProduct.css");
-
-/* ------------- Login/Register ----------------- */
-@import url("./components/mainpages/auth/login.css");
 
 /* ------------ Cart ------------------- */
 @import url("./components/mainpages/cart/cart.css");
@@ -150,8 +147,8 @@ button{
     92.23deg,
     #406aff 21.43%,
     #3bace2 50.63%,
-    #b936ee 100%,
-    #ff56f6 117.04%
+    #827289 100%,
+    #1b121a 117.04%
   );
 }
 
@@ -193,7 +190,7 @@ button{
 
 
 .ce-my-message-bubble {
-  background-color: #7a39e0 !important;
+  background-color: #1c1a20 !important;
 }
 
 .ce-chat-title-text {

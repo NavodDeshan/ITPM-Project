@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -57,11 +56,11 @@ export default function EditPost() {
 
   return (
     <div className='max-w-lg mx-auto my-8'>
-      <h4 className='text-3xl font-bold mb-4'>Edit Projecy Members</h4>
+      <h4 className='text-3xl font-bold mb-4'>Edit Project Members</h4>
       <hr />
       <form onSubmit={handleFormSubmit}>
-        <div className='form-group'>
-          <label>Lecturer name</label>
+        <div className='form-group mb-4'>
+          <label className="block">Lecturer name</label>
           <input
             type='text'
             className='form-control text-black'
@@ -71,8 +70,8 @@ export default function EditPost() {
           />
         </div>
 
-        <div className='form-group'>
-          <label>Email:</label>
+        <div className='form-group mb-4'>
+          <label className="block">Email:</label>
           <input
             type='text'
             className='form-control text-black'
@@ -82,8 +81,8 @@ export default function EditPost() {
           />
         </div>
 
-        <div className='form-group'>
-          <label>lecId:</label>
+        <div className='form-group mb-4'>
+          <label className="block">Lecturer ID:</label>
           <input
             type='text'
             className='form-control text-black'
@@ -93,8 +92,8 @@ export default function EditPost() {
           />
         </div>
 
-        <div className='form-group'>
-          <label>Password:</label>
+        <div className='form-group mb-4'>
+          <label className="block">Password:</label>
           <input
             type='password'
             className='form-control text-black'

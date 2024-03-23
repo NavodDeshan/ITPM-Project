@@ -26,7 +26,7 @@ const Form = () => {
     const newErrors = {};
 
     if (!formData.name) {
-      newErrors.name = ' Name is required';
+      newErrors.name = 'Name is required';
     }
 
     if (!formData.email) {
@@ -38,7 +38,7 @@ const Form = () => {
     }
 
     if (!formData.password) {
-      newErrors.password = 'password is required';
+      newErrors.password = 'Password is required';
     }
 
     if (!formData.lecId) {
@@ -51,116 +51,112 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-      try{
-        validate();
+    try {
+      validate();
 
-        await axios.post('/add/emp', formData)
-      // axios.post('/user/adduser', {
-      //   name: formData.name, 
-      //   email: formData.email, 
-      //   password: formData.password, 
-      //   role: 2})
-        
-          
-            alert('New Project Manager added Successfully!');
-            setFormData({
-              name: '',
-              email: '',
-              password: '',
-              lecId: '',
-              role: '2',
-            });
-            setErrors({});
-            window.location.href = "/Emp";
-          }
-        catch(error) {
-          console.error(error);
-        };
-    
+      await axios.post('/add/emp', formData);
+
+      alert('New Project Manager added Successfully!');
+      setFormData({
+        name: '',
+        email: '',
+        password: '',
+        lecId: '',
+        role: '2',
+      });
+      setErrors({});
+      window.location.href = "/Emp";
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
-    <div className="col-md-8 mt-4 mx-auto">
-      <h1 className="h3 mb-3 font-weight-normal">Add new Project Member</h1>
-      <form className="needs-validation" onSubmit={handleSubmit} noValidate>
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <h1 className="h3 mb-3 font-weight-normal text-center">Add new Project Member</h1>
+          <div className="text-center">
+            <form className="needs-validation" onSubmit={handleSubmit} noValidate>
+              <div className="form-group">
+                <label style={{ marginBottom: '10px', display: 'block' }}>Name</label>
+                <input
+                  type="text"
+                  className={`form-control text-zinc-950 ${errors.name && 'is-invalid'}`}
+                  name="name"
+                  placeholder="Enter First Name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                />
+                {errors.name && (
+                  <div className="invalid-feedback" style={{ color: 'red' }}>
+                    {errors.name}
+                  </div>
+                )}
+              </div>
 
-        <div className="form-group" style={{ marginBottom: '15px' }}>
-          <label style={{ marginBottom: '5px' }}>Name</label>
-          <input
-            type="text"
-            className={`form-control text-zinc-950 ${errors.name && 'is-invalid'}`}
-            name="name"
-            placeholder="Enter First Name"
-            value={formData.name}
-            onChange={handleInputChange}
-          />
-          {errors.name && (
-            <div className="invalid-feedback" style={{ color: 'red' }}>
-              {errors.name}
-            </div>
-          )}
-        </div>
+              <div className="form-group">
+                <label style={{ marginBottom: '10px', display: 'block' }}>Email</label>
+                <input
+                  type="email"
+                  className={`form-control text-zinc-950 ${errors.email && 'is-invalid'}`}
+                  name="email"
+                  placeholder="Enter Email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
+                {errors.email && (
+                  <div className="invalid-feedback" style={{ color: 'red' }}>
+                    {errors.email}
+                  </div>
+                )}
+              </div>
 
-        <div className="form-group" style={{ marginBottom: '15px' }}>
-          <label style={{ marginBottom: '5px' }}>Email</label>
-          <input
-            type="email"
-            className={`form-control text-zinc-950 ${errors.email && 'is-invalid'}`}
-            name="email"
-            placeholder="Enter Email"
-            value={formData.email}
-            onChange={handleInputChange}
-          />
-          {errors.email && (
-            <div className="invalid-feedback" style={{ color: 'red' }}>
-              {errors.email}
-            </div>
-          )}
-        </div>
+              <div className="form-group">
+                <label style={{ marginBottom: '10px', display: 'block' }}>Lec Id</label>
+                <input
+                  type="text"
+                  className={`form-control text-zinc-950 ${errors.lecId && 'is-invalid'}`}
+                  name="lecId"
+                  placeholder="Enter Lecturer Id"
+                  value={formData.lecId}
+                  onChange={handleInputChange}
+                />
+                {errors.lecId && (
+                  <div className="invalid-feedback" style={{ color: 'red' }}>
+                    {errors.lecId}
+                  </div>
+                )}
+              </div>
 
-        <div className="form-group" style={{ marginBottom: '15px' }}>
-          <label style={{ marginBottom: '5px' }}>Lec Id</label>
-          <input
-            type="text"
-            className={`form-control text-zinc-950 ${errors.lecId && 'is-invalid'}`}
-            name="lecId"
-            placeholder="Enter Lecturer Id"
-            value={formData.lecId}
-            onChange={handleInputChange}
-          />
-          {errors.lecId && (
-            <div className="invalid-feedback" style={{ color: 'red' }}>
-              {errors.lecId}
-            </div>
-          )}
-        </div>
+              <div className="form-group">
+                <label style={{ marginBottom: '10px', display: 'block' }}>Password</label>
+                <input
+                  type="password"
+                  className={`form-control text-zinc-950 ${errors.password && 'is-invalid'}`}
+                  name="password"
+                  placeholder="Enter password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                />
+                {errors.password && (
+                  <div className="invalid-feedback" style={{ color: 'red' }}>
+                    {errors.password}
+                  </div>
+                )}
+              </div>
 
-        <div className="form-group" style={{ marginBottom: '15px' }}>
-          <label style={{ marginBottom: '5px' }}>password</label>
-          <input
-            type="password"
-            className={`form-control text-zinc-950 ${errors.password && 'is-invalid'}`}
-            name="password"
-            placeholder="Enter password"
-            value={formData.lecId}
-            onChange={handleInputChange}
-          />
-          {errors.password && (
-            <div className="invalid-feedback" style={{ color: 'red' }}>
-              {errors.password}
-            </div>
-          )}
+              <div className="form-group">
+                <button type="submit" className="btn btn-primary btn-hover">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-
-        <div className="form-group" style={{ marginTop: '15px' }}>
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-        </div>
-      </form>
+      </div>
     </div>
   );
 }
 
 export default Form;
-
