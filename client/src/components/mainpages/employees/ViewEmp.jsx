@@ -53,12 +53,10 @@ const Emp = () => {
   };
 
   return (
-      <div className='mx-auto max-w-7xl mt-16' style={{ backgroundColor: '#f0f4f8', color: '#333' }}>
+      <div className='mx-auto max-w-7xl mt-16 p-8' style={{ backgroundColor: '#6B7280', color: '#333' }}>
         <div className="flex items-center justify-between mb-8">
           <div className='flex items-center'>
-            <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
-              <i className='fas fa-search text-gray-600'></i>
-            </div>
+          
             <input className='ml-3 py-2 px-4 w-80 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500 text-gray-900' type="search" placeholder='Search' name='searchQuery' onChange={handleSearch} />
           </div>
           <div className='flex space-x-4'>
@@ -68,12 +66,12 @@ const Emp = () => {
           </div>
         </div>
 
-        <a className="bg-yellow-300 hover:bg-yellow-600 text-gray-900 py-2 px-4 rounded-lg" href={`/empR`}>Get Report</a> 
+        {/* <a className="bg-yellow-300 hover:bg-yellow-600 text-gray-900 py-2 px-4 rounded-lg" href={`/empR`}>Get Report</a>  */}
         <h3 className='mb-4 mt-8 text-3xl font-medium'>Project members</h3>
 
-        <table className='w-full border-collapse border border-gray-300' style={{ backgroundColor: '#fff' }}>
+        <table className='w-full border-collapse border border-gray-300 p-3 ' style={{ backgroundColor: '#fff' }}>
           <thead>
-            <tr className="bg-gray-200">
+            <tr className="bg-gray-500">
               <th className="px-4 py-2 text-left border border-gray-300">No</th>
               <th className="px-4 py-2 text-left border border-gray-300">Name</th>
               <th className="px-4 py-2 text-left border border-gray-300">Email Address</th>
@@ -83,7 +81,7 @@ const Emp = () => {
           </thead>
           <tbody>
             {posts.map((post, index) => (
-              <tr key={post._id} className='bg-transparent'>
+              <tr key={post._id} className='bg-gray-500'>
                 <td className="px-4 py-2 text-left border border-gray-300">{index + 1}</td>
                 <td className="px-4 py-2 text-left border border-gray-300">{post.name}</td>
                 <td className="px-4 py-2 text-left border border-gray-300">{post.email}</td>

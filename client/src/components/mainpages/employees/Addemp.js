@@ -72,10 +72,12 @@ const Form = () => {
   };
 
   return (
-    <div className="container">
+    <>
+          <h1 className="h3 mb-3 font-weight-normal text-center">Add new Project Member</h1>
+<div className='flex item-center justify-center'>
+    <div className="bg-gray-500 w-8/12">
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <h1 className="h3 mb-3 font-weight-normal text-center">Add new Project Member</h1>
           <div className="text-center">
             <form className="needs-validation" onSubmit={handleSubmit} noValidate>
               <div className="form-group">
@@ -156,6 +158,8 @@ const Form = () => {
         </div>
       </div>
     </div>
+    </div>
+    </>
   );
 }
 
