@@ -44,81 +44,66 @@ function Register() {
     }
 
     return (
-        <div className='registerPageLR flexLR'>
-        <div className="containerLR flexLR">
+        <div className='flex justify-center items-center h-screen bg-gray-200'>
+            <div className="flex flex-col justify-center items-center bg-white p-10 rounded-lg shadow-md">
 
-            <div className="videoDiv">
-                <video src={video} autoPlay muted loop></video>
+       
 
-                <div className='textDiv'>
-                    <h2 className='title'>Buy And Rent Mobile Phones</h2>
-                    <p>Adopt best quality Brand new Mobiles and Used ones.</p>
-                </div>
-
-                <div className="footerDiv flexLR">
-                    <span className='text'>Have an account?</span>
-                    <Link to={'/login'}>
-                        <button className='btn font-secondary'>Login</button>
-                    </Link>
-                </div>
-            </div>    
-            
-            <div className="formDiv flexLR">
-                <div className="headerDiv">
-                    {/* <img src={elaLogo} alt="elaLogo" /> */}
-                    <h3>Let us Know You!</h3>
-                </div>
-
-                <form noValidate onSubmit={registerSubmit} className='form grid' autoComplete='off'>
-                    <div className="inputDiv">
-                            <label htmlFor="name">Name</label>
-                            <div className="input flexLR">
-                                <FaUserShield className='icon' />
-                                <input type="text" name="name" placeholder="Enter Username" value={user.name} onChange={onChangeInput}/>
-                            </div>
-                    </div>
-
-                    <div className="inputDiv">
-                        <label htmlFor="email">Email</label>
-                        <div className="input flexLR">
-                            <MdMarkEmailRead className='icon' />
-                            <input type="email" id="email" name="email" placeholder="Enter Email" value={user.email} onChange={onChangeInput} />
+                <form noValidate onSubmit={registerSubmit} className='flex flex-col space-y-5'>
+                    <div className="flex flex-col space-y-2">
+                        <label htmlFor="name" className='font-semibold text-gray-600'>Name</label>
+                        <div className="flex items-center space-x-2">
+                            <FaUserShield className='text-gray-500' />
+                            <input type="text" name="name" placeholder="Enter Username" value={user.name} onChange={onChangeInput} className='p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-400' />
                         </div>
                     </div>
 
-                    <div className="inputDiv">
-                            <label htmlFor="studentId">StudentId</label>
-                            <div className="input flexLR">
-                                <FaUserShield className='icon' />
-                                <input type="text" name="studentId" placeholder="Enter studentId" value={user.studentId} onChange={onChangeInput}/>
-                            </div>
-                    </div>
-
-                    <div className="inputDiv">
-                            <label htmlFor="specialization">specialization</label>
-                            <div className="input flexLR">
-                                <FaUserShield className='icon' />
-                                <input type="text" name="specialization" placeholder="Enter Specialization" value={user.specialization} onChange={onChangeInput}/>
-                            </div>
-                    </div>
-
-                    <div className="inputDiv">
-                        <label htmlFor="password">Password</label>
-                        <div className="input flexLR">
-                            <BsFillShieldLockFill className='icon' />
-                            <input type="password" id="password" name="password" placeholder="Enter Password" value={user.studentId} readOnly onChange={onChangeInput}/>
+                    <div className="flex flex-col space-y-2">
+                        <label htmlFor="email" className='font-semibold text-gray-600'>Email</label>
+                        <div className="flex items-center space-x-2">
+                            <MdMarkEmailRead className='text-gray-500' />
+                            <input type="email" id="email" name="email" placeholder="Enter Email" value={user.email} onChange={onChangeInput} className='p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-400' />
                         </div>
                     </div>
 
-                    <button type='submit' className='btn flexLR'>
-                        <span className='font-secondary'>Register</span>
+                    <div className="flex flex-col space-y-2">
+                        <label htmlFor="studentId" className='font-semibold text-gray-600'>StudentId</label>
+                        <div className="flex items-center space-x-2">
+                            <FaUserShield className='text-gray-500' />
+                            <input type="text" name="studentId" placeholder="Enter studentId" value={user.studentId} onChange={onChangeInput} className='p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-400' />
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col space-y-2">
+                        <label htmlFor="specialization" className='font-semibold text-gray-600'>Specialization</label>
+                        <div className="flex items-center space-x-2">
+                            <FaUserShield className='text-gray-500' />
+                            <input type="text" name="specialization" placeholder="Enter Specialization" value={user.specialization} onChange={onChangeInput} className='p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-400' />
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col space-y-2">
+                        <label htmlFor="password" className='font-semibold text-gray-600'>Password</label>
+                        <div className="flex items-center space-x-2">
+                            <BsFillShieldLockFill className='text-gray-500' />
+                            <input type="password" id="password" name="password" placeholder="Enter Password" value={user.studentId} readOnly onChange={onChangeInput} className='p-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-400' />
+                        </div>
+                    </div>
+
+                    <button type='submit' className='bg-blue-500 text-white p-2 rounded-lg w-full hover:bg-blue-600'>
+                        Register
                     </button>
                 </form>
+
+                <div className="mt-5">
+                    <span className='text-gray-500'>Have an account?</span>
+                    <Link to={'/login'} className='text-blue-500 hover:underline cursor-pointer ml-2'>
+                        Login
+                    </Link>
+                </div>
+
             </div>
-
         </div>
-        </div>
-    )
-}
+    )}
 
-export default Register
+    export default Register;
