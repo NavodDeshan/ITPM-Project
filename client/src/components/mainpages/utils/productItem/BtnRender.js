@@ -8,7 +8,7 @@ function BtnRender({ product, deleteProduct }) {
   const addCart = state.userAPI.addCart;
 
   return (
-    <div className="flex justify-center">
+    <div className="flex gap-8">
       {isAdmin ? (
         <>
           <button
