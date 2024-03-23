@@ -8,18 +8,20 @@ import Footer from './components/Footer/Footer';
 
 function App() {
   return (
-    
     <DataProvider>
       <Router>
-        <div className="">
-          <Header />
-          <MainPages />
+        <div className="flex flex-col justify-between min-h-screen">
+          <div>
+            <Header />
+            <div className='h-full'>
+              <MainPages />
+            </div>
+          </div>
           <Footer />
         </div>
+        {/* <SupportEngine/> */}
       </Router>
-      {/* <SupportEngine/> */}
     </DataProvider>
-    
   );
 }
 

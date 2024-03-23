@@ -84,7 +84,7 @@ const Form = () => {
                 <label style={{ marginBottom: '10px', display: 'block' }}>Name</label>
                 <input
                   type="text"
-                  className={`form-control text-zinc-950 ${errors.name && 'is-invalid'}`}
+                  className={` rounded-md form-control text-zinc-950 ${errors.name && 'is-invalid'}`}
                   name="name"
                   placeholder="Enter First Name"
                   value={formData.name}
@@ -101,7 +101,7 @@ const Form = () => {
                 <label style={{ marginBottom: '10px', display: 'block' }}>Email</label>
                 <input
                   type="email"
-                  className={`form-control text-zinc-950 ${errors.email && 'is-invalid'}`}
+                  className={` rounded-md form-control text-zinc-950 ${errors.email && 'is-invalid'}`}
                   name="email"
                   placeholder="Enter Email"
                   value={formData.email}
@@ -118,7 +118,7 @@ const Form = () => {
                 <label style={{ marginBottom: '10px', display: 'block' }}>Lec Id</label>
                 <input
                   type="text"
-                  className={`form-control text-zinc-950 ${errors.lecId && 'is-invalid'}`}
+                  className={`rounded-md form-control text-zinc-950 ${errors.lecId && 'is-invalid'}`}
                   name="lecId"
                   placeholder="Enter Lecturer Id"
                   value={formData.lecId}
@@ -135,7 +135,7 @@ const Form = () => {
                 <label style={{ marginBottom: '10px', display: 'block' }}>Password</label>
                 <input
                   type="password"
-                  className={`form-control text-zinc-950 ${errors.password && 'is-invalid'}`}
+                  className={` rounded-md form-control text-zinc-950 ${errors.password && 'is-invalid'}`}
                   name="password"
                   placeholder="Enter password"
                   value={formData.password}
@@ -149,7 +149,7 @@ const Form = () => {
               </div>
 
               <div className="form-group">
-                <button type="submit" className="btn btn-primary btn-hover">
+                <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  mt-2 mb-2 rounded">
                   Submit
                 </button>
               </div>
