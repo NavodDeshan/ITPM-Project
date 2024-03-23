@@ -1,5 +1,5 @@
+const { default: _default } = require('concurrently')
 const mongoose = require('mongoose')
-
 
 const categorySchema = new mongoose.Schema({
     name: {
@@ -7,6 +7,10 @@ const categorySchema = new mongoose.Schema({
         required: true,
         trim: true,
         unique: true
+    },
+    subcategory: {
+        type: Array,
+        default: []
     }
 }, {
     timestamps: true
