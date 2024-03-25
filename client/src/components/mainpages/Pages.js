@@ -37,6 +37,8 @@ import ReportEmp from './employees/empR';
 import ReportOrder from './history/OrderR';
 import ReportPro from './products/ProductR';
 import Reportwarranty from './warranty/warrantyR';
+import Addresarchpaperreq from './researchpaper/Addresarchpaperreq';
+import ResearchRequests from './researchpaper/ResearchReq';
 
 import {GlobalState} from '../../GlobalState';
 
@@ -111,6 +113,9 @@ function Pages() {
             <Route path="/returnitems" exact element={<Allreturn />} />
             <Route path="/cuswarranty" exact element={<Cuswarranty />} />
             <Route path="/warrantyR" exact element={<Reportwarranty />} />
+
+            <Route path="/Addresarchpaperreq" exact element={<Addresarchpaperreq/>} />
+            <Route path="/ResearchReq" exact element={<ResearchRequests/>} />
 
         </Routes>
         

@@ -32,6 +32,7 @@ const postOrd = require('./routes/paymentRouter');
 const postPro = require('./routes/productRouter');
 const postDelivery = require('./routes/postDelivery');
 const postWarranty = require('./routes/postWarranty');
+const postresearch = require('./routes/postresearch');
 const postStd = require('./routes/students');
 
 
@@ -43,6 +44,7 @@ app.use(postDelivery);
 app.use(postWarranty);
 app.use(postPro);
 app.use(postStd);
+app.use(postresearch);
 
 // app.get("/",(req,res)=>{
 //     res.send("upload file")
