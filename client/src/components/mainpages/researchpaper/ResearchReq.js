@@ -35,6 +35,7 @@ function ResearchRequests() {
     });
   };
 
+  
 //   const markAsComplete = (id) => {
 //     axios.put(`/research/markAsComplete/${id}`).then(res => {
 //       alert('Marked as Complete');
@@ -74,7 +75,7 @@ function ResearchRequests() {
                   <th scope='col'>Link 2</th>
                   <th scope='col'>Payment</th>
                   <th scope='col'>Status</th>
-                  <th scope='col'>Actions</th>
+                 
                 </tr>
               </thead>
               <tbody style={{background:'pink'}}>
@@ -93,18 +94,40 @@ function ResearchRequests() {
                     <td>{request.link1}</td>
                     <td>{request.link2}</td>
                     <td>{request.payment}</td>
-                    <td>{request.status}</td>
-
                     <td>
-                <button className="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded-lg mr-2">
-                  <i className="fa-solid fa-circle-check"></i>&nbsp;Accepted
-                </button>
-                </td>
-                <td>
-                <button className="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded-lg" >
-                  <i className="fas fa-trash-alt"></i>&nbsp;Rejected
-                </button>
+                    <select
+  className="p-2 border border-gray-300 rounded-md text-gray-900 focus:outline-none"
+  aria-label="Default select example"
+  value={request.status} // Change from post.status to request.status
+  onChange={(e) => {
+    const value = e.target.value;
+    const id = request._id; // Change from post._id to request._id
+    axios.put(`/research/update/${id}`, { status: value })
+      .then((response) => {
+        console.log(response.data);
+        // Instead of calling retrievePosts(), you should update the status in the local state
+        const updatedPosts = posts.map(post => {
+          if (post._id === id) {
+            return { ...post, status: value };
+          } else {
+            return post;
+          }
+        });
+        setPosts(updatedPosts);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }}
+>
+  <option value="Pending">Pending</option>
+  <option value="Accepted">Accepted</option>
+  <option value="Accepted and Returned">Rejected</option>
+</select>
+
               </td>
+
+                
                   </tr>
                 ))}
               </tbody>

@@ -100,16 +100,17 @@ router.get('/research/markAsComplete/:id', async (req, res) => {
 router.put('/research/markAsComplete/:id', async (req, res) => {
     try {
       const post = await Posts.findById(req.params.id);
-      const {invoiceNo, cName, imeiNo, model, phoneNo} = post;
-      const completedPost = new Completed({invoiceNo, cName, imeiNo, model, phoneNo});
+      const {title, student1, student2, student3, student4, cosupervisor, supervisor, conferencename, issn, link1, link2, payment} = post;
+      const completedPost = new Completed({title, student1, student2, student3, student4, cosupervisor, supervisor, conferencename, issn, link1, link2, payment});
       await completedPost.save();
-    //   await Posts.findByIdAndDelete(req.params.id);
+      // await Posts.findByIdAndDelete(req.params.id);
       res.json({ success: true });
     } catch (error) {
       console.log(error);
       res.json({ success: false, message: error.message });
     }
-  });
+});
+
 
   // get completed posts
 router.get('/researchCompleted', async (req, res) => {
